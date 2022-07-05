@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Grid, GridItem } from '@chakra-ui/react';
-import { EditorMobile } from '../assets/images';
 import phones from '../assets/images/illustration-phones.svg';
+import editor from '../assets/images/illustration-editor-mobile.svg';
+import laptop from '../assets/images/illustration-laptop-mobile.svg';
 
 const PageContents = () => {
   return (
@@ -9,7 +10,9 @@ const PageContents = () => {
       <h2>Designed for the future</h2>
       <Grid gap={20}>
         <GridItem justifyContent={'center'} w={'100%'}>
-          <EditorMobile style={{ margin: '0 auto' }} />
+          <div className="editor-container">
+            <img src={editor} alt="illustration editor" />
+          </div>
           <h2>
             Introducing an <span>extensible editor</span>
           </h2>
@@ -32,7 +35,7 @@ const PageContents = () => {
           </p>
         </GridItem>
         <GridItem className="peach">
-          <div className="container">
+          <div className="phone-container">
             <div className="img-container">
               <img src={phones} alt="" />
             </div>
@@ -49,12 +52,32 @@ const PageContents = () => {
             </div>
           </div>
         </GridItem>
+        <GridItem justifyContent={'center'} w={'100%'}>
+          <div className="laptop-container">
+            <img src={laptop} alt="illustration laptop" />
+          </div>
+          <h2>Free, open, simple</h2>
+          <p>
+            Blogr is a free and open source application backed by a large
+            community of helpful developers. It supports features such as code
+            syntax highlighting, RSS feeds, social media integration,
+            third-party commenting tools, and works seamlessly with Google
+            Analytics. The architecture is clean and is relatively easy to
+            learn.
+          </p>
+          <h2>Powerful tooling</h2>
+          <p>
+            Batteries included. We built a simple and straightforward CLI tool
+            that makes customization and deployment a breeze, but capable of
+            producing even the most complicated sites.
+          </p>
+        </GridItem>
       </Grid>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.main`
+const Wrapper = styled.section`
   margin-top: 5em;
 
   & > h2 {
@@ -62,10 +85,10 @@ const Wrapper = styled.main`
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 600;
     color: var(--clr-heading);
-    margin: 2em auto 0.5em;
+    margin: 1.2em auto 0.5em;
 
     span {
       display: block;
@@ -74,12 +97,23 @@ const Wrapper = styled.main`
 
   p {
     letter-spacing: 1px;
-    font-size: 0.85rem;
+    font-size: 1rem;
     line-height: 2;
-    max-width: 21em;
+    max-width: 22em;
     margin: 0 auto;
     font-family: var(--ff-headingFont);
     color: var(--clr-VD-grayish-blue);
+  }
+
+  .editor-container,
+  .laptop-container {
+    width: 100%;
+    height: 350px;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .peach {
@@ -89,19 +123,14 @@ const Wrapper = styled.main`
     margin-top: 10em;
   }
 
-  .img-container {
-    position: absolute;
-    top: -28%;
-  }
-
   .text-container {
     margin-top: 10em;
   }
 
-  .container {
+  .phone-container {
     color: var(--clr-white);
     height: 630px;
-    width: 420px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -121,9 +150,20 @@ const Wrapper = styled.main`
     p {
       font-family: var(--ff-headingFont);
       font-weight: 400;
-      max-width: 15rem;
+      max-width: 22rem;
       margin: 1.2em auto 0;
       color: var(--clr-grayish-blue-footer);
+    }
+
+    .img-container {
+      position: absolute;
+      top: -32%;
+    }
+  }
+
+  @media (min-width: 420px) {
+    .phone-container {
+      width: 420px;
     }
   }
 `;

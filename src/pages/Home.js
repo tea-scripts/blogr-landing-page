@@ -7,7 +7,7 @@ const Landing = () => {
       <Navbar />
       <Hero />
       <PageContents />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Footer />
     </div>
   );

@@ -19,7 +19,7 @@ const Hero = () => {
 };
 
 const Wrapper = styled.section`
-  min-height: 70vh;
+  min-height: 80vh;
   width: 100%;
   margin-top: -5rem;
   border-bottom-left-radius: 7em;
@@ -38,7 +38,8 @@ const Wrapper = styled.section`
   background-position: 31% 35%;
 
   h1 {
-    font-size: 3rem;
+    font-size: 2.7rem;
+    font-weight: bold;
 
     span {
       display: block;
@@ -70,16 +71,35 @@ const Wrapper = styled.section`
       font-family: var(--ff-headingFont);
       border-radius: 27px;
       line-height: 1;
+      transition: var(--transition);
     }
   }
 
   .white-cta {
     background: var(--clr-white);
     color: var(--clr-light-red);
+
+    :hover {
+      background: var(--clr-cta-hover);
+      color: var(--clr-white);
+    }
   }
 
   .transparent-cta {
     border: 0.1em solid var(--clr-white);
+
+    :hover {
+      background: var(--clr-white);
+      color: var(--clr-light-red);
+    }
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      span {
+        display: inline-block;
+      }
+    }
   }
 `;
 
